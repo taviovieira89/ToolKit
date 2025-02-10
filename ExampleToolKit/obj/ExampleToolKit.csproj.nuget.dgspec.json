@@ -8,7 +8,7 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "C:\\GIT\\Projetos\\ExampleToolkit\\ExampleToolKit\\ExampleToolKit.csproj",
-        "projectName": "ExampleToolKit",
+        "projectName": "Toolkit",
         "projectPath": "C:\\GIT\\Projetos\\ExampleToolkit\\ExampleToolKit\\ExampleToolKit.csproj",
         "packagesPath": "C:\\Users\\tavioaraujo\\.nuget\\packages\\",
         "outputPath": "C:\\GIT\\Projetos\\ExampleToolkit\\ExampleToolKit\\obj\\",

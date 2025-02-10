@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "GDl+rFzyciY=",
+  "dgSpecHash": "VK9lzQzb+Zk=",
   "success": true,
   "projectFilePath": "C:\\GIT\\Projetos\\ExampleToolkit\\ExampleToolKit\\ExampleToolKit.csproj",
   "expectedPackageFiles": [
@@ -99,7 +99,7 @@
       "code": "NU1608",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Versão detectada do pacote fora da restrição de dependência: MediatR.Extensions.Microsoft.DependencyInjection 11.1.0 requer MediatR (>= 11.0.0 && < 12.0.0), mas a versão MediatR 12.4.1 foi resolvida.",
+      "message": "Detected package version outside of dependency constraint: MediatR.Extensions.Microsoft.DependencyInjection 11.1.0 requires MediatR (>= 11.0.0 && < 12.0.0) but version MediatR 12.4.1 was resolved.",
       "libraryId": "MediatR",
       "targetGraphs": [
         "net9.0"
