@@ -6,7 +6,7 @@ public abstract class AggregateRoot
 
     public IReadOnlyCollection<INotification> DomainEvents => _domainEvents.AsReadOnly();
 
-    protected void AddDomainEvent(INotification domainEvent)
+    protected void AddDomainEvent(DomainEvent domainEvent)
     {
         _domainEvents.Add(domainEvent);
     }
