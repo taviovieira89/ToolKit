@@ -1,9 +1,7 @@
 using Confluent.Kafka;
-
 public abstract class MessageConsumer<TKey, TValue>
 {
     private readonly IConsumer<TKey, TValue> _consumer;
-
     public MessageConsumer(IntegrationEvent integrationEvent)
     {
         var config = new ConsumerConfig
@@ -24,7 +22,6 @@ public abstract class MessageConsumer<TKey, TValue>
             while (!cancellationToken.IsCancellationRequested)
             {
                 var consumeResult = _consumer.Consume(cancellationToken);
-                //handleMessage(consumeResult.Message.Key, consumeResult.Message.Value);
                 HandleMessage(consumeResult.Message.Key, consumeResult.Message.Value).Wait(cancellationToken);
             }
         }
@@ -38,6 +35,39 @@ public abstract class MessageConsumer<TKey, TValue>
         }
     }
 
+    public async Task<IntegrationEvent> ConsumeAndReturn(CancellationToken cancellationToken)
+    {
+        var eventData = new IntegrationEvent(string.Empty, new EventData());
+
+        try
+        {
+            while (!cancellationToken.IsCancellationRequested)
+            {
+                // Consome a mensagem do Kafka
+                var consumeResult = _consumer.Consume(cancellationToken);
+
+                // Processa a mensagem
+                await HandleMessage(consumeResult.Message.Key, consumeResult.Message.Value);
+
+                // Preenche o objeto eventData com a chave e o valor da mensagem
+                eventData.Key = consumeResult.Message.Key.ToString();
+                eventData.Value = new EventData() { Value = consumeResult.Message.Value.ToString() };
+            }
+
+            // Retorna a chave e o evento após consumir a mensagem
+            return eventData;
+        }
+        catch (OperationCanceledException)
+        {
+            // Caso o processo seja cancelado, retorna valores nulos
+            return default!;
+        }
+        finally
+        {
+            _consumer.Close(); // Garante que o consumidor seja fechado ao fim
+        }
+    }
+
     protected abstract Task HandleMessage(TKey key, TValue value);
 
     public void Dispose()
@@ -45,6 +75,7 @@ public abstract class MessageConsumer<TKey, TValue>
         _consumer.Dispose();
     }
 }
+
 
 //Example Code:
 //var settings = new IntegrationEvent {Topic = ""};

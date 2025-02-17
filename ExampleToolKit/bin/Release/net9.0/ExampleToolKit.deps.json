@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v9.0": {
-      "ExampleToolKit/1.0.0": {
+      "ExampleToolKit/1.0.1": {
         "dependencies": {
           "Confluent.Kafka": "2.8.0",
           "MediatR": "12.4.1",
@@ -1127,7 +1127,7 @@
     }
   },
   "libraries": {
-    "ExampleToolKit/1.0.0": {
+    "ExampleToolKit/1.0.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

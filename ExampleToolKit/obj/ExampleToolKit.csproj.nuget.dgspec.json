@@ -5,7 +5,7 @@
   },
   "projects": {
     "C:\\GIT\\Projetos\\ExampleToolkit\\ExampleToolKit\\ExampleToolKit.csproj": {
-      "version": "1.0.0",
+      "version": "1.0.1",
       "restore": {
         "projectUniqueName": "C:\\GIT\\Projetos\\ExampleToolkit\\ExampleToolKit\\ExampleToolKit.csproj",
         "projectName": "Toolkit",
@@ -90,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.103/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

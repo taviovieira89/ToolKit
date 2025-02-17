@@ -7,7 +7,7 @@
     <Nullable>enable</Nullable>
 	<Authors>FERA</Authors>
     <PackageId>Toolkit</PackageId>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <Description>Toolkit para facilitar o uso do Kafka em .NET</Description>
     <RepositoryUrl>https://github.com/taviovieira89/ToolKit</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
