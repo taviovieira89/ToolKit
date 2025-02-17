@@ -14,6 +14,7 @@
         "outputPath": "C:\\GIT\\Projetos\\ExampleToolkit\\ExampleToolKit\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
+          "C:\\GIT\\Projetos\\ExampleToolkit\\NuGet.Config",
           "C:\\Users\\tavioaraujo\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [

@@ -7,9 +7,15 @@ public class IntegrationEvent : KafkData<string, EventData>
     public string Topic { get; set; }= "";
     public AutoOffsetReset AutoOffsetReset { get; set; } = AutoOffsetReset.Earliest;
 
-     public IntegrationEvent(string key, EventData value) : base(key, value)
-     {
-     }
+  // Construtor sem parâmetros
+    public IntegrationEvent() : base("DefaultKey", new EventData()) // Valor default para 'key'
+    {
+    }
+
+    // Construtor com os parâmetros
+    public IntegrationEvent(string key, EventData value) : base(key, value)
+    {
+    }
 }
 
 public class KafkData<TKey, TValue>
