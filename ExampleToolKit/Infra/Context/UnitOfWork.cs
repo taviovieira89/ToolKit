@@ -12,7 +12,7 @@ public class UnitOfWork<TContext> : IUnitOfWork where TContext : DbContext
     public UnitOfWork(
         TContext context, 
         IMediator mediator, 
-        MongoDbContext mongoContext)
+        MongoDbContext mongoContext = null!)
     {
         _context = context;
         _mediator = mediator;
