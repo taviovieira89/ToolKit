@@ -1,16 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 
-// Implementação do DbContext
-public class ContextDb : DbContext
+public class ContextDb<T> : DbContext where T : DbContext
 {
-    public ContextDb(DbContextOptions<ContextDb> options) : base(options)
-    {
-    }
-
-    // public DbSet<T> SetEntity<T>() where T : class
-    // {
-    //     return Set<T>();
-    // }
+    public ContextDb(DbContextOptions<T> options) : base(options) { }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

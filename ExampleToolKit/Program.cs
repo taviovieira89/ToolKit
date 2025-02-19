@@ -50,8 +50,8 @@ public class Program
                 services.AddSingleton(typeof(ResultProducer<>));
                 services.AddTransient<AggregateRoot>();
                 // Registrando Repositório e UnitOfWork
-                services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+                services.AddScoped(typeof(IRepository<>), typeof(Repository<,>));
                 services.AddScoped(typeof(IMongoDbRepository<>), typeof(MongoRepository<>));
-                services.AddScoped<IUnitOfWork, UnitOfWork>();
+                services.AddScoped(typeof(IUnitOfWork),typeof(UnitOfWork<>));
             });
 }
