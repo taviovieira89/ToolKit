@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Toolkit</id>
+    <version>1.0.2</version>
+    <authors>FERA</authors>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <description>Toolkit para facilitar o uso do Kafka em .NET</description>
+    <repository type="git" url="https://github.com/taviovieira89/ToolKit" commit="2eb09e3d5eed32a7598eff283bb52c1496584063" />
+    <dependencies>
+      <group targetFramework="net9.0">
+        <dependency id="Confluent.Kafka" version="2.8.0" exclude="Build,Analyzers" />
+        <dependency id="MediatR" version="12.4.1" exclude="Build,Analyzers" />
+        <dependency id="MediatR.Extensions.Microsoft.DependencyInjection" version="11.1.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.EntityFrameworkCore" version="9.0.1" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.EntityFrameworkCore.SqlServer" version="9.0.1" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Hosting" version="9.0.1" exclude="Build,Analyzers" />
+        <dependency id="MongoDB.Driver" version="3.1.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\GIT\Projetos\ExampleToolkit\ExampleToolKit\bin\release\net9.0\ExampleToolKit.runtimeconfig.json" target="lib\net9.0\ExampleToolKit.runtimeconfig.json" />
+    <file src="C:\GIT\Projetos\ExampleToolkit\ExampleToolKit\bin\release\net9.0\ExampleToolKit.dll" target="lib\net9.0\ExampleToolKit.dll" />
+  </files>
+</package>
