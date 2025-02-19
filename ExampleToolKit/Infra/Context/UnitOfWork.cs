@@ -19,7 +19,7 @@ public class UnitOfWork<TContext> : IUnitOfWork where TContext : DbContext
         _mongoContext = mongoContext;
     }
 
-    public IRepository<T> Repository<T>(bool useMongo = false) where T : class
+    public IRepository<T, TContext> Repository<T>(bool useMongo = false) where T : class
     {
         if (!_repositories.ContainsKey(typeof(T)))
         {
@@ -30,7 +30,7 @@ public class UnitOfWork<TContext> : IUnitOfWork where TContext : DbContext
             _repositories[typeof(T)] = repository;
         }
 
-        return (IRepository<T>)_repositories[typeof(T)];
+        return (IRepository<T, TContext>)_repositories[typeof(T)];
     }
 
     public void SaveChanges()

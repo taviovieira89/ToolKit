@@ -1,6 +1,9 @@
 // Interface para repositórios genéricos
 using System.Linq.Expressions;
-public interface IRepository<T> where T : class
+using Microsoft.EntityFrameworkCore;
+public interface IRepository<T,TContext> 
+where T : class
+where TContext : DbContext
 {
     void Add(T entity);
     IEnumerable<T> GetAll();

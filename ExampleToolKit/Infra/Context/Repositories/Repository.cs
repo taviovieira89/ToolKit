@@ -5,7 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-public class Repository<T, TContext> : IRepository<T>
+public class Repository<T, TContext> : IRepository<T,TContext>
     where T : class
     where TContext : DbContext
 {

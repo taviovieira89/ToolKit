@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Toolkit para facilitar o uso do Kafka em .NET")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.2.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.2+2eb09e3d5eed32a7598eff283bb52c1496584063")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.2+e1a4c170e322b83d06f0af3448a2fba7ffef291d")]
 [assembly: System.Reflection.AssemblyProductAttribute("ExampleToolKit")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ExampleToolKit")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.2.0")]
