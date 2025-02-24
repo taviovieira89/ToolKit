@@ -37,8 +37,6 @@ public abstract class MessageConsumer<TKey, TValue>
 
     public async Task<IntegrationEvent> ConsumeAndReturn(CancellationToken cancellationToken)
     {
-        var eventData = new IntegrationEvent(string.Empty, new EventData());
-
         try
         {
             while (!cancellationToken.IsCancellationRequested)
@@ -46,26 +44,42 @@ public abstract class MessageConsumer<TKey, TValue>
                 // Consome a mensagem do Kafka
                 var consumeResult = _consumer.Consume(cancellationToken);
 
-                // Processa a mensagem
-                await HandleMessage(consumeResult.Message.Key, consumeResult.Message.Value);
+                if (consumeResult != null && !consumeResult.IsPartitionEOF)
+                {
+                    // Processa a mensagem
+                    await HandleMessage(consumeResult.Message.Key, consumeResult.Message.Value);
 
-                // Preenche o objeto eventData com a chave e o valor da mensagem
-                eventData.Key = consumeResult.Message.Key.ToString();
-                eventData.Value = new EventData() { Value = consumeResult.Message.Value.ToString() };
+                    // Cria e retorna o objeto IntegrationEvent
+                    var eventData = new IntegrationEvent(
+                        key: consumeResult.Message.Key!.ToString()!,
+                        value: new EventData { Value = consumeResult.Message.Value!.ToString()! }
+                    );
+
+                    Console.WriteLine($"Mensagem consumida e retornada: Key = {eventData.Key}, Value = {eventData.Value.Value}");
+                    return eventData;
+                }
+                else
+                {
+                    // Se não houver mensagem, aguarda um pouco antes de tentar novamente
+                    Console.WriteLine("Nenhuma mensagem disponível. Aguardando...");
+                    await Task.Delay(1000, cancellationToken);
+                }
             }
-
-            // Retorna a chave e o evento após consumir a mensagem
-            return eventData;
         }
         catch (OperationCanceledException)
         {
-            // Caso o processo seja cancelado, retorna valores nulos
-            return default!;
+            Console.WriteLine("Consumo cancelado.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erro ao consumir mensagem: {ex.Message}");
         }
         finally
         {
             _consumer.Close(); // Garante que o consumidor seja fechado ao fim
         }
+
+        return null!; // Retorna null se nenhuma mensagem for consumida
     }
 
     protected abstract Task HandleMessage(TKey key, TValue value);

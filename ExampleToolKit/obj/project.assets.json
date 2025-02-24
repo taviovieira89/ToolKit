@@ -4421,7 +4421,7 @@
     "C:\\Users\\tavioaraujo\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "1.0.2",
+    "version": "1.0.3",
     "restore": {
       "projectUniqueName": "C:\\GIT\\Projetos\\ExampleToolkit\\ExampleToolKit\\ExampleToolKit.csproj",
       "projectName": "Toolkit",
