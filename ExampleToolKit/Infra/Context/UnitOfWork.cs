@@ -9,14 +9,18 @@ public class UnitOfWork<TContext> : IUnitOfWork where TContext : DbContext
     private readonly Dictionary<Type, object> _repositories = new();
     private bool _disposed = false;
 
+    private readonly IDomainEventLogger _eventLogger;
+
     public UnitOfWork(
-        TContext context, 
-        IMediator mediator, 
-        MongoDbContext mongoContext = null!)
+        TContext context,
+        IMediator mediator,
+        MongoDbContext mongoContext = null!,
+        IDomainEventLogger eventLogger = null!)
     {
         _context = context;
         _mediator = mediator;
         _mongoContext = mongoContext;
+        _eventLogger = eventLogger ?? new NullDomainEventLogger();
     }
 
     public IRepository<T, TContext> Repository<T>(bool useMongo = false) where T : class
@@ -45,15 +49,30 @@ public class UnitOfWork<TContext> : IUnitOfWork where TContext : DbContext
         var aggregateRoots = _context.ChangeTracker
             .Entries<AggregateRoot>()
             .Select(e => e.Entity)
+            .Where(e => e.DomainEvents.Any())
             .ToList();
 
         var domainEvents = aggregateRoots
             .SelectMany(e => e.DomainEvents)
             .ToList();
 
+        // Registramos cada evento no log antes de publicá-lo
+        foreach (var aggregateRoot in aggregateRoots)
+        {
+            foreach (var domainEvent in aggregateRoot.DomainEvents)
+            {
+                await _eventLogger.LogEventAsync(
+                    domainEvent,
+                    aggregateRoot.GetId().ToString()!,
+                    aggregateRoot.GetType().Name
+                );
+            }
+        }
+
         foreach (var domainEvent in domainEvents)
         {
             await _mediator.Publish(domainEvent);
+            await _eventLogger.MarkEventAsProcessedAsync(domainEvent);
         }
 
         aggregateRoots.ForEach(e => e.ClearDomainEvents());

@@ -11,13 +11,13 @@ using System;
 using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("FERA")]
-[assembly: System.Reflection.AssemblyConfigurationAttribute("release")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Toolkit para facilitar o uso do Kafka em .NET")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.3.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.3+2a248a9b87fd93ff379bdb370303b6fbb06dd071")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.5.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.5+e6ca4363c46afdc7e8d4f7762a82f26fe96c6b70")]
 [assembly: System.Reflection.AssemblyProductAttribute("ExampleToolKit")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ExampleToolKit")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.0.3.0")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.0.5.0")]
 [assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", "https://github.com/taviovieira89/ToolKit")]
 
 // Gerado pela classe WriteCodeFragment do MSBuild.

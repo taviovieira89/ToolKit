@@ -4421,7 +4421,7 @@
     "C:\\Users\\tavioaraujo\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "1.0.3",
+    "version": "1.0.5",
     "restore": {
       "projectUniqueName": "C:\\GIT\\Projetos\\ExampleToolkit\\ExampleToolKit\\ExampleToolKit.csproj",
       "projectName": "Toolkit",
@@ -4507,7 +4507,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.103/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.104/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
@@ -4516,7 +4516,7 @@
       "code": "NU1608",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Detected package version outside of dependency constraint: MediatR.Extensions.Microsoft.DependencyInjection 11.1.0 requires MediatR (>= 11.0.0 && < 12.0.0) but version MediatR 12.4.1 was resolved.",
+      "message": "Versão detectada do pacote fora da restrição de dependência: MediatR.Extensions.Microsoft.DependencyInjection 11.1.0 requer MediatR (>= 11.0.0 && < 12.0.0), mas a versão MediatR 12.4.1 foi resolvida.",
       "libraryId": "MediatR",
       "targetGraphs": [
         "net9.0"
