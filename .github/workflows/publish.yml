@@ -2,10 +2,10 @@ name: Publish NuGet Package
 'on':
   push:
     branches:
-      - main
+      - v1
   pull_request:
     branches:
-      - main
+      - v1
 
 jobs:
   build-and-publish:
